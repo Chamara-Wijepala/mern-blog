@@ -11,7 +11,16 @@ const getAllBlogs = asyncHandler(async (req, res) => {
 	return res.json(blogs);
 });
 
-const getBlog = asyncHandler(async (req, res) => {});
+const getBlog = asyncHandler(async (req, res) => {
+	const { id } = req.params;
+	const blog = await Blog.findById(id);
+
+	if (!blog) {
+		return res.status(500).json({ message: 'Blog not found' });
+	}
+
+	return res.status(200).json(blog);
+});
 
 const createBlog = asyncHandler(async (req, res) => {
 	const { title, snippet, description } = req.body;

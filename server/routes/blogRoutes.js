@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get('/', blogController.getAllBlogs);
 
+router.get('/:id', blogController.getBlog);
+
 router.post('/', blogController.createBlog);
 
 export default router;
