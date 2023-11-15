@@ -8,7 +8,7 @@ const getAllBlogs = asyncHandler(async (req, res) => {
 		return res.status(400).json({ message: 'No blogs found' });
 	}
 
-	return res.json(blogs);
+	return res.status(200).json(blogs);
 });
 
 const getBlog = asyncHandler(async (req, res) => {
@@ -32,7 +32,7 @@ const createBlog = asyncHandler(async (req, res) => {
 	const newBlog = { title, snippet, description };
 	const blog = await Blog.create(newBlog);
 
-	return res.status(200).send(blog);
+	return res.status(201).json(blog);
 });
 
 const updateBlog = asyncHandler(async (req, res) => {
