@@ -35,9 +35,34 @@ const createBlog = asyncHandler(async (req, res) => {
 	return res.status(200).send(blog);
 });
 
-const updateBlog = asyncHandler(async (req, res) => {});
+const updateBlog = asyncHandler(async (req, res) => {
+	const { id } = req.params;
+	const { title, snippet, description } = req.body;
 
-const deleteBlog = asyncHandler(async (req, res) => {});
+	if (!title || !snippet || !description) {
+		return res.status(400).json({ message: 'All fields are required' });
+	}
+
+	const result = await Blog.findByIdAndUpdate(id, req.body);
+
+	if (!result) {
+		return res.status(404).json({ message: 'Blog not found' });
+	}
+
+	return res.status(200).json(result);
+});
+
+const deleteBlog = asyncHandler(async (req, res) => {
+	const { id } = req.params;
+
+	const result = await Blog.findByIdAndDelete(id);
+
+	if (!result) {
+		return res.status(404).json({ message: 'Blog not found' });
+	}
+
+	return res.status(200).json({ message: 'Blog deleted' });
+});
 
 export default {
 	getAllBlogs,
