@@ -1,10 +1,20 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Blog() {
 	const [blog, setBlog] = useState({});
 	const { id } = useParams();
+	const navigate = useNavigate();
+
+	function deleteBlog() {
+		axios
+			.delete(`http://localhost:5000/blogs/${id}`)
+			.then((res) => {
+				if (res.status === 200) navigate('/');
+			})
+			.catch((error) => console.log(error));
+	}
 
 	useEffect(() => {
 		axios
@@ -31,7 +41,10 @@ export default function Blog() {
 						Edit
 					</button>
 				</Link>
-				<button className="py-1 px-4 rounded-md bg-red-400 border-gray-400 border">
+				<button
+					onClick={deleteBlog}
+					className="py-1 px-4 rounded-md bg-red-400 border-gray-400 border"
+				>
 					Delete
 				</button>
 			</div>
