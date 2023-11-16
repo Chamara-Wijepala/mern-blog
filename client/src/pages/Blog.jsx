@@ -21,12 +21,12 @@ export default function Blog() {
 		<>
 			<div className="flex gap-4 mb-8">
 				<Link to="/">
-					<button className="py-1 px-4 rounded-md border-gray-400 border">
+					<button className="py-1 px-4 rounded-md bg-white border-gray-400 border">
 						Back
 					</button>
 				</Link>
 
-				<button className="py-1 px-4 ml-auto rounded-md border-gray-400 border">
+				<button className="py-1 px-4 ml-auto rounded-md bg-white border-gray-400 border">
 					Edit
 				</button>
 				<button className="py-1 px-4 rounded-md bg-red-400 border-gray-400 border">

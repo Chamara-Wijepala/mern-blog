@@ -18,7 +18,7 @@ export default function Home() {
 	return (
 		<>
 			<section>
-				<h2 className="text-4xl">All Blogs</h2>
+				<h2 className="text-2xl md:text-4xl font-medium">All Blogs</h2>
 
 				{blogs.map((blog) => (
 					<Link to={`blogs/${blog._id}`} key={blog._id}>
