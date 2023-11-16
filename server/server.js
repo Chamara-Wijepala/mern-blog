@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URL = process.env.MONGODB_URL;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'https://cwmernblog.onrender.com' }));
 app.use(express.json());
 
 app.use('/blogs', blogRoutes);
