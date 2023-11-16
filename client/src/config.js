@@ -1,1 +1,1 @@
-export const baseUrl = 'https://cwmernblog.onrender.com';
+export const baseUrl = 'https://cwmernblog-api.onrender.com';
