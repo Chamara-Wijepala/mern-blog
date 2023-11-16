@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import CreateBlog from './pages/CreateBlog';
+import EditBlog from './pages/EditBlog';
 
 export default function App() {
 	return (
@@ -12,6 +13,7 @@ export default function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/blogs/:id" element={<Blog />} />
 				<Route path="/blogs/create" element={<CreateBlog />} />
+				<Route path="/blogs/edit/:id" element={<EditBlog />} />
 			</Routes>
 		</div>
 	);

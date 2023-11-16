@@ -26,9 +26,11 @@ export default function Blog() {
 					</button>
 				</Link>
 
-				<button className="py-1 px-4 ml-auto rounded-md bg-white border-gray-400 border">
-					Edit
-				</button>
+				<Link to={`/blogs/edit/${id}`} className="ml-auto">
+					<button className="py-1 px-4  rounded-md bg-white border-gray-400 border">
+						Edit
+					</button>
+				</Link>
 				<button className="py-1 px-4 rounded-md bg-red-400 border-gray-400 border">
 					Delete
 				</button>
