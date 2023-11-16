@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../config';
 import BlogForm from '../components/BlogForm';
 
 export default function EditBlog() {
@@ -25,7 +26,7 @@ export default function EditBlog() {
 		e.preventDefault();
 
 		axios
-			.patch(`http://localhost:5000/blogs/${id}`, state)
+			.patch(`${baseUrl}/blogs/${id}`, state)
 			.then((res) => {
 				if (res.status === 200) {
 					navigate(`/blogs/${id}`);
@@ -36,7 +37,7 @@ export default function EditBlog() {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5000/blogs/${id}`)
+			.get(`${baseUrl}/blogs/${id}`)
 			.then((res) => {
 				const { title, snippet, description } = res.data;
 				setState({

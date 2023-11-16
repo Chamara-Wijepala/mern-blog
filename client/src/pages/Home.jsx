@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../config';
 import BlogCard from '../components/BlogCard';
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:5000/blogs')
+			.get(`${baseUrl}/blogs`)
 			.then((res) => {
 				setBlogs(res.data);
 			})

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../config';
 
 export default function Blog() {
 	const [blog, setBlog] = useState({});
@@ -9,7 +10,7 @@ export default function Blog() {
 
 	function deleteBlog() {
 		axios
-			.delete(`http://localhost:5000/blogs/${id}`)
+			.delete(`${baseUrl}/blogs/${id}`)
 			.then((res) => {
 				if (res.status === 200) navigate('/');
 			})
@@ -18,7 +19,7 @@ export default function Blog() {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5000/blogs/${id}`)
+			.get(`${baseUrl}/blogs/${id}`)
 			.then((res) => {
 				setBlog(res.data);
 			})

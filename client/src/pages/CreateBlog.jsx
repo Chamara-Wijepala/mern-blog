@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../config';
 import BlogForm from '../components/BlogForm';
 
 export default function CreateBlog() {
@@ -24,7 +25,7 @@ export default function CreateBlog() {
 		e.preventDefault();
 
 		axios
-			.post('http://localhost:5000/blogs/', state)
+			.post(`${baseUrl}/blogs/`, state)
 			.then((res) => {
 				if (res.status === 201) {
 					navigate(`/blogs/${res.data._id}`);
